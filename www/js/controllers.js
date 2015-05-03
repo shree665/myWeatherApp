@@ -1,7 +1,17 @@
 angular.module('myWeatherApp.controllers', [])
 
-.controller('CurrentCtrl', function($scope) {
-      console.log("You are on current Controller");
+.controller('CurrentCtrl', function($scope, $http, $ionicLoading, $timeout, $location) {
+        console.log("You are on current Controller");
+        var url = "https://api.forecast.io/forecast/0ef17b0eba286f81dbde403ca9456f32/38.854681,-77.165222" + "?callback=JSON_CALLBACK";
+        $http.get(url)
+            .success(function(data) {
+                $scope.weatherData = data;
+                console.log($scope.weatherData);
+            }).
+            error(function(data, status) {
+                console.log("Error has occurred: " + status);
+                console.log(data);
+            });
     })
 
 .controller('FavoriteCtrl', function($scope, Chats) {

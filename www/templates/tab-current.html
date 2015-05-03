@@ -1,5 +1,11 @@
-<ion-view view-title="Current Location">
+<ion-view view-title={{weatherData.timezone}}>
   <ion-content>
-    <p>Dashboard to display current location's weather info</p>
+    <h1>Currently</h1>
+    <p>{{weatherData.currently.summary}}</p>
+    <p>{{weatherData.currently.temperature}}</p>
+    <p>{{weatherData.currently.humidity}}</p>
+    <p>{{weatherData.currently.windSpeed}}</p>
+    <p>{{weatherData.currently.visibility}}</p>
+    <p>{{weatherData.currently.cloudCover}}</p>
   </ion-content>
 </ion-view>
