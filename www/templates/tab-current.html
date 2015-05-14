@@ -1,12 +1,28 @@
 <ion-view view-title={{weatherData.timezone}}>
   <ion-content>
-    <h1>Currently</h1>
-    <p>{{weatherData.currently.summary}}</p>
-    <p>{{weatherData.currently.temperature}}</p>
-      <img src="../png/rainy12.png">
-    <p>{{weatherData.currently.humidity}}</p>
-    <p>{{weatherData.currently.windSpeed}}</p>
-    <p>{{weatherData.currently.visibility}}</p>
-    <p>{{weatherData.currently.cloudCover}}</p>
+    <div class="list">
+
+      <div class="item item-divider">
+        Currently
+      </div>
+
+      <p class="item">Summary: {{weatherData.currently.summary}}</p>
+      <p class="item">Temperature: {{weatherData.currently.temperature}}</p>
+      <p class="item">Humidity: {{weatherData.currently.humidity}}</p>
+      <p class="item">Wind Speed: {{weatherData.currently.windSpeed}}</p>
+      <p class="item">Visibility: {{weatherData.currently.visibility}}</p>
+      <p class="item">Cloud Cover: {{weatherData.currently.cloudCover}}</p>
+
+      <div class="item item-divider">
+        Hourly
+      </div>
+
+      <p class="item">Summary: {{weatherData.hourly.data.summary}}</p>
+      <p class="item">Temperature: {{weatherData.hourly.data.temperature}}</p>
+      <p class="item">Humidity: {{weatherData.hourly.data.humidity}}</p>
+      <p class="item">Wind Speed: {{weatherData.hourly.data.windSpeed}}</p>
+      <p class="item">Visibility: {{weatherData.hourly.data.visibility}}</p>
+      <p class="item">Cloud Cover: {{weatherData.hourly.data.cloudCover}}</p>
+    </div>
   </ion-content>
 </ion-view>
