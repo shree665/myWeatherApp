@@ -1,7 +1,44 @@
 <ion-view view-title={{weatherData.timezone}}>
   <ion-content>
-    <div class="list">
 
+      <ion-list>
+        <div>
+          <ion-item class="item-stable"
+                    ng-click="toggleGroup('Currently')"
+                    ng-class="{active: isGroupShown('Currently')}">
+            <i class="icon" ng-class="isGroupShown('Currently') ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+            Currently
+          </ion-item>
+          <ion-item
+                    ng-show="isGroupShown('Currently')">
+            <h3>Summary: {{weatherData.currently.summary}}</h3>
+              <h3>Temperature: {{weatherData.currently.temperature}}</h3>
+              <h3>Humidity: {{weatherData.currently.humidity}}</h3>
+              <h3>Wind Speed: {{weatherData.currently.windSpeed}}</h3>
+              <h3>Visibility: {{weatherData.currently.visibility}}</h3>
+              <h3>Cloud Cover: {{weatherData.currently.cloudCover}}</h3>
+          </ion-item>
+        </div>
+          <div>
+              <ion-item class="item-stable"
+                        ng-click="toggleGroup('Hourly')"
+                        ng-class="{active: isGroupShown('Hourly')}">
+                  <i class="icon" ng-class="isGroupShown('Hourly') ? 'ion-minus' : 'ion-plus'"></i>
+                  &nbsp;
+                  Hourly
+              </ion-item>
+              <ion-item ng-show="isGroupShown('Hourly')">
+                  <h3>Summary: {{weatherData.currently.summary}}</h3>
+                  <h3>Temperature: {{weatherData.currently.temperature}}</h3>
+                  <h3>Humidity: {{weatherData.currently.humidity}}</h3>
+                  <h3>Wind Speed: {{weatherData.currently.windSpeed}}</h3>
+                  <h3>Visibility: {{weatherData.currently.visibility}}</h3>
+                  <h3>Cloud Cover: {{weatherData.currently.cloudCover}}</h3>
+              </ion-item>
+          </div>
+      </ion-list>
+      <!--
       <div class="item item-divider">
         Currently
       </div>
@@ -24,5 +61,6 @@
       <p class="item">Visibility: {{weatherData.hourly.data.visibility}}</p>
       <p class="item">Cloud Cover: {{weatherData.hourly.data.cloudCover}}</p>
     </div>
+    -->
   </ion-content>
 </ion-view>

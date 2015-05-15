@@ -1,6 +1,9 @@
 angular.module('myWeatherApp.controllers', [])
     .controller('CurrentCtrl', function($scope, $http, $ionicLoading, $timeout, $location) {
             console.log("You are on current Controller");
+
+
+        $scope.groups = [{name: 'Currently'}, {name: 'Hourly'}, {name: 'Daily'}];
             var url = "https://api.forecast.io/forecast/0ef17b0eba286f81dbde403ca9456f32/38.854681,-77.165222";
             $http.get(url).success(function(data) {
                     $scope.weatherData = data;
@@ -10,6 +13,19 @@ angular.module('myWeatherApp.controllers', [])
                     console.log("Error has occurred: " + status);
                     console.log(data);
                 });
+
+        $scope.toggleGroup = function(group) {
+            if ($scope.isGroupShown(group)) {
+                $scope.shownGroup = null;
+            } else {
+                $scope.shownGroup = group;
+            }
+        };
+
+        $scope.isGroupShown = function(group) {
+            return $scope.shownGroup === group;
+        };
+
         })
 
     .controller('FavoriteCtrl', function($scope, Chats) {
@@ -24,19 +40,3 @@ angular.module('myWeatherApp.controllers', [])
       $scope.chat = Chats.get($stateParams.chatId);
     });
 
-
-/*
- angular.module('myModule')
- .config(function ( $httpProvider) {
- delete $httpProvider.defaults.headers.common['X-Requested-With'];
- }).factory('featuresData', function ($http) {
- return{
- doCrossDomainGet: function() {
- return $http({
- url:'http://other.domain.com',
- method: 'GET'
- })
- }
- }
- });
- */
